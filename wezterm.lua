@@ -1,4 +1,4 @@
-local wezterm = require "wezterm"
+local wezterm = require("wezterm")
 
 local config = wezterm.config_builder()
 local act = wezterm.action
@@ -8,13 +8,13 @@ config.leader = { key = "s", mods = "CTRL", timeout_milliseconds = 5000 }
 config.keys = {
 	{ key = "r", mods = "CTRL|LEADER", action = act.SplitHorizontal },
 	{ key = "d", mods = "CTRL|LEADER", action = act.SplitVertical },
-	{ key = "h", mods = "CTRL", action = act.ActivatePaneDirection 'Left'}, 
-	{ key = "j", mods = "CTRL", action = act.ActivatePaneDirection 'Down'},
-	{ key = "k", mods = "CTRL", action = act.ActivatePaneDirection 'Up'},
-	{ key = "l", mods = "CTRL", action = act.ActivatePaneDirection 'Right'},
+	{ key = "h", mods = "CTRL|LEADER", action = act.ActivatePaneDirection("Left") },
+	{ key = "j", mods = "CTRL|LEADER", action = act.ActivatePaneDirection("Down") },
+	{ key = "k", mods = "CTRL|LEADER", action = act.ActivatePaneDirection("Up") },
+	{ key = "l", mods = "CTRL|LEADER", action = act.ActivatePaneDirection("Right") },
 }
 
-config.font = wezterm.font('JetBrains Mono')
+config.font = wezterm.font("JetBrains Mono")
 config.font_size = 14
 
 config.window_decorations = "RESIZE"
@@ -33,8 +33,5 @@ config.colors = {
 	ansi = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#0FC5ED", "#a277ff", "#24EAF7", "#24EAF7" },
 	brights = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
 }
-
-
-
 
 return config
